@@ -150,8 +150,7 @@ export default function Portfolio() {
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
                   I'm a passionate computer engineer with experience in creating full stack web applications. I
-                  specialize in frontend development with React and Next.js, but I'm also comfortable working with
-                  backend technologies.
+                  love working with both frontend and backend, from React and Next.js to relational databases to AI agents and machine learning models.
                 </p>
                 <p className="text-lg text-zinc-300 mt-4">
                   My journey in tech started in robotics, as my high schools head of programming for FIRST Robotics. I've since expanded my horizons to full stack web development, PCB design and robotics programming.
