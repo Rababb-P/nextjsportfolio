@@ -1,189 +1,65 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 
 export function CreativeHero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
-
-    let devicePixelRatio: number
-
-    // Set canvas dimensions
-    const setCanvasDimensions = () => {
-      devicePixelRatio = window.devicePixelRatio || 1
-      const rect = canvas.getBoundingClientRect()
-
-      canvas.width = rect.width * devicePixelRatio
-      canvas.height = rect.height * devicePixelRatio
-
-      ctx.scale(devicePixelRatio, devicePixelRatio)
-    }
-
-    setCanvasDimensions()
-    window.addEventListener("resize", setCanvasDimensions)
-
-    // Mouse position
-    let mouseX = 0
-    let mouseY = 0
-    let targetX = 0
-    let targetY = 0
-
-    window.addEventListener("mousemove", (e) => {
-      const rect = canvas.getBoundingClientRect()
-      targetX = e.clientX - rect.left
-      targetY = e.clientY - rect.top
-    })
-
-    // Particle class
-    class Particle {
-      x: number
-      y: number
-      size: number
-      baseX: number
-      baseY: number
-      density: number
-      color: string
-      distance: number
-
-      constructor(x: number, y: number) {
-        this.x = x
-        this.y = y
-        this.baseX = x
-        this.baseY = y
-        this.size = Math.random() * 5 + 2
-        this.density = Math.random() * 30 + 1
-        this.distance = 0
-
-        // Create a varied palette of greens (from yellow-green to teal)
-        const hue = Math.random() * 70 + 90 // 90-160 range for greens
-        const sat = Math.random() * 30 + 60 // 60-90% saturation
-        const light = Math.random() * 20 + 40 // 40-60% lightness
-        this.color = `hsl(${hue}, ${sat}%, ${light}%)`
-      }
-
-      update() {
-        // Calculate distance between mouse and particle
-        const dx = mouseX - this.x
-        const dy = mouseY - this.y
-        this.distance = Math.sqrt(dx * dx + dy * dy)
-
-        const forceDirectionX = dx / this.distance
-        const forceDirectionY = dy / this.distance
-
-        const maxDistance = 100
-        const force = (maxDistance - this.distance) / maxDistance
-
-        if (this.distance < maxDistance) {
-          const directionX = forceDirectionX * force * this.density
-          const directionY = forceDirectionY * force * this.density
-
-          this.x -= directionX
-          this.y -= directionY
-        } else {
-          if (this.x !== this.baseX) {
-            const dx = this.x - this.baseX
-            this.x -= dx / 10
-          }
-          if (this.y !== this.baseY) {
-            const dy = this.y - this.baseY
-            this.y -= dy / 10
-          }
-        }
-      }
-
-      draw() {
-        ctx.fillStyle = this.color
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.closePath()
-        ctx.fill()
-      }
-    }
-
-    // Create particle grid
-    const particlesArray: Particle[] = []
-    const particleCount = 1000
-    const gridSize = 30
-
-    function init() {
-      particlesArray.length = 0
-
-      const canvasWidth = canvas.width / devicePixelRatio
-      const canvasHeight = canvas.height / devicePixelRatio
-
-      const numX = Math.floor(canvasWidth / gridSize)
-      const numY = Math.floor(canvasHeight / gridSize)
-
-      for (let y = 0; y < numY; y++) {
-        for (let x = 0; x < numX; x++) {
-          const posX = x * gridSize + gridSize / 2
-          const posY = y * gridSize + gridSize / 2
-          particlesArray.push(new Particle(posX, posY))
-        }
-      }
-    }
-
-    init()
-
-    // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Smooth mouse following
-      mouseX += (targetX - mouseX) * 0.1
-      mouseY += (targetY - mouseY) * 0.1
-
-      // Draw connections
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update()
-        particlesArray[i].draw()
-
-        // Draw connections
-        for (let j = i; j < particlesArray.length; j++) {
-          const dx = particlesArray[i].x - particlesArray[j].x
-          const dy = particlesArray[i].y - particlesArray[j].y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 30) {
-            ctx.beginPath()
-            ctx.strokeStyle = `rgba(34, 197, 94, ${0.2 - distance / 150})` // Tailwind green-500
-            ctx.lineWidth = 0.5
-            ctx.moveTo(particlesArray[i].x, particlesArray[i].y)
-            ctx.lineTo(particlesArray[j].x, particlesArray[j].y)
-            ctx.stroke()
-          }
-        }
-      }
-
-      requestAnimationFrame(animate)
-    }
-
-    animate()
-
-    // Handle window resize
-    window.addEventListener("resize", init)
-
-    return () => {
-      window.removeEventListener("resize", setCanvasDimensions)
-      window.removeEventListener("resize", init)
-    }
-  }, [])
+  const orbitBadges = [
+    { label: "ML enthusiast", className: "left-0 top-16" },
+    { label: "robot programmer", className: "right-2 top-10" },
+    { label: "full-stack builder", className: "bottom-10 left-10" },
+    { label: "Waterloo engineer", className: "bottom-20 right-0" },
+  ]
 
   return (
     <motion.div
-      className="w-full h-[400px] md:h-[500px] relative"
+      className="relative h-[420px] w-full md:h-[520px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <canvas ref={canvasRef} className="w-full h-full" style={{ display: "block" }} />
+      <div className="absolute inset-0">
+        <div className="absolute left-10 top-8 h-24 w-24 rounded-full bg-green-300/20 blur-2xl" />
+        <div className="absolute right-6 top-24 h-28 w-28 rounded-full bg-emerald-300/20 blur-2xl" />
+        <div className="absolute bottom-6 left-1/3 h-24 w-24 rounded-full bg-teal-300/20 blur-2xl" />
+      </div>
+
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      >
+        <div className="relative flex h-[320px] w-[320px] items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-xl md:h-[400px] md:w-[400px]">
+          <div className="absolute inset-5 rounded-full border border-dashed border-green-200/30" />
+          <div className="absolute inset-10 rounded-full border border-dashed border-teal-200/20" />
+          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_top,rgba(134,239,172,0.16),transparent_36%),radial-gradient(circle_at_bottom,rgba(45,212,191,0.14),transparent_30%)]" />
+
+          {orbitBadges.map((badge, index) => (
+            <motion.div
+              key={badge.label}
+              className={`absolute rounded-full border border-white/15 bg-slate-950/70 px-3 py-2 text-xs uppercase tracking-[0.25em] text-green-100 shadow-lg shadow-slate-950/30 ${badge.className}`}
+              animate={{ y: [0, index % 2 === 0 ? -8 : 8, 0] }}
+              transition={{ duration: 4 + index, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+            >
+              {badge.label}
+            </motion.div>
+          ))}
+
+          <motion.div
+            className="relative h-48 w-48 overflow-hidden rounded-[36px] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-slate-950/40 md:h-56 md:w-56"
+            animate={{ rotate: [-2, 2, -2] }}
+            transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(134,239,172,0.2),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.16),transparent_30%)]" />
+            <Image
+              src="/websitepfp.jpg"
+              alt="Rababb Pannu portrait"
+              fill
+              className="rounded-[28px] object-cover"
+            />
+          </motion.div>
+        </div>
+      </motion.div>
     </motion.div>
   )
 }

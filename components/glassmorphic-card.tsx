@@ -16,8 +16,9 @@ export function GlassmorphicCard({ children }: GlassmorphicCardProps) {
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
     >
-      <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-green-600/50">
-        <div className="absolute -inset-1 bg-gradient-to-r from-green-600/10 to-green-400/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
+      <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-white/8 p-6 backdrop-blur-xl transition-all duration-300 hover:border-emerald-300/35 hover:bg-white/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(134,239,172,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.16),transparent_28%)]"></div>
+        <div className="absolute -inset-1 rounded-[32px] bg-gradient-to-r from-green-200/10 via-emerald-300/10 to-teal-300/10 blur-xl opacity-70 transition duration-700"></div>
 
         <div className="relative">{children}</div>
       </div>
