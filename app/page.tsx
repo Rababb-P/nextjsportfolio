@@ -22,6 +22,7 @@ import { FloatingNav } from "@/components/floating-nav"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
+import { AuroraBackground } from "@/components/ui/aurora-background"
 
 const resumeUrl = "https://drive.google.com/file/d/14YLR1ZixK4FxT7ogixuHqiahCWm0ciG7/view?usp=sharing"
 
@@ -128,101 +129,97 @@ export default function Portfolio() {
       <ScrollProgress />
       <FloatingNav />
 
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-24">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute left-[8%] top-20 h-56 w-56 rounded-full bg-green-300/18 blur-3xl animate-blob"></div>
-          <div className="absolute right-[10%] top-28 h-72 w-72 rounded-full bg-emerald-300/14 blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-teal-300/14 blur-3xl animate-blob animation-delay-4000"></div>
-          <div className="absolute left-12 top-1/3 text-green-100/70 animate-twinkle">*</div>
-          <div className="absolute right-16 top-1/4 text-emerald-100/70 animate-twinkle animation-delay-2000">*</div>
-          <div className="absolute bottom-24 right-1/4 text-teal-100/70 animate-twinkle animation-delay-4000">*</div>
-        </div>
-
-        <div className="container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-green-50 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-green-300" />
-              Marvel Rivals Player at Heart
+      <div className="dark">
+        <AuroraBackground className="bg-slate-950 text-white">
+          <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-4 py-24">
+            <div className="container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+              <div className="space-y-8">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-emerald-200 backdrop-blur-sm">
+                  <Sparkles className="h-4 w-4 text-emerald-500" />
+                  Marvel Rivals Player at Heart
+                </div>
+                <div className="space-y-5">
+                  <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-7xl">
+                    Rababb Pannu,
+                    <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                      {" "}
+                      hackathon enthusiast,
+                    </span>
+                  </h1>
+                  <p className="max-w-[650px] text-lg leading-8 text-slate-200 md:text-xl">
+                    I&apos;m a Computer Engineering student at the University of Waterloo, currently blending machine
+                    learning, robotics, and full-stack product work through experiences at BMO, WATonomous, and
+                    NeedList.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="#projects" scroll={true}>
+                    <Button className="border-0 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 text-white hover:opacity-90">
+                      View Projects
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="outline"
+                    className="border-white/15 bg-white/5 text-slate-100 hover:border-white/25 hover:bg-white/10"
+                    asChild
+                  >
+                    <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
+                      Resume
+                      <Download className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+                <div className="flex gap-4 pt-2">
+                  <Link href="https://github.com/Rababb-P" target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
+                    >
+                      <Github className="h-5 w-5" />
+                      <span className="sr-only">GitHub</span>
+                    </Button>
+                  </Link>
+                  <Link href="https://www.linkedin.com/in/rababb-pannu/" target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                      <span className="sr-only">LinkedIn</span>
+                    </Button>
+                  </Link>
+                  <Link href="https://instagram.com/rababb_p" target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
+                    >
+                      <Instagram className="h-5 w-5" />
+                      <span className="sr-only">Instagram</span>
+                    </Button>
+                  </Link>
+                  <Link href="mailto:rpannu@uwaterloo.ca">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
+                    >
+                      <Mail className="h-5 w-5" />
+                      <span className="sr-only">Email</span>
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <CreativeHero />
+              </div>
             </div>
-            <div className="space-y-5">
-              <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-7xl">
-                Rababb Pannu,
-                <span className="bg-gradient-to-r from-green-200 via-emerald-200 to-teal-200 bg-clip-text text-transparent">
-                  {" "}
-                  hackathon enthusiast,
-                </span>
-              </h1>
-              <p className="max-w-[650px] text-lg leading-8 text-slate-200 md:text-xl">
-                I&apos;m a Computer Engineering student at the University of Waterloo, currently blending machine
-                learning, robotics, and full-stack product work through experiences at BMO, WATonomous, and NeedList.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <Link href="#projects" scroll={true}>
-                <Button className="border-0 bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 text-slate-950 hover:opacity-90">
-                  View Projects
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Button
-                variant="outline"
-                className="border-white/15 bg-white/5 text-slate-100 hover:border-white/25 hover:bg-white/10"
-                asChild
-              >
-                <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                  Resume
-                  <Download className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-            <div className="flex gap-4 pt-2">
-              <Link href="https://github.com/Rababb-P" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                >
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </Button>
-              </Link>
-              <Link href="https://www.linkedin.com/in/rababb-pannu/" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Button>
-              </Link>
-              <Link href="https://instagram.com/rababb_p" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                >
-                  <Instagram className="h-5 w-5" />
-                  <span className="sr-only">Instagram</span>
-                </Button>
-              </Link>
-              <Link href="mailto:rpannu@uwaterloo.ca">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                >
-                  <Mail className="h-5 w-5" />
-                  <span className="sr-only">Email</span>
-                </Button>
-              </Link>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <CreativeHero />
-          </div>
-        </div>
-      </section>
+          </section>
+        </AuroraBackground>
+      </div>
 
       <section id="about" className="relative px-4 py-28">
         <div className="container relative z-10">
@@ -232,8 +229,8 @@ export default function Portfolio() {
             <div className="grid gap-6">
               {highlights.map((item) => (
                 <GlassmorphicCard key={item.title}>
-                  <item.icon className="mb-4 h-8 w-8 text-green-200" />
-                  <h3 className="mb-2 text-xl font-semibold text-green-50">{item.title}</h3>
+                  <item.icon className="mb-4 h-8 w-8 text-emerald-500" />
+                  <h3 className="mb-2 text-xl font-semibold text-emerald-200">{item.title}</h3>
                   <p className="text-sm leading-6 text-slate-200">{item.text}</p>
                 </GlassmorphicCard>
               ))}
@@ -244,12 +241,12 @@ export default function Portfolio() {
                 <div className="space-y-6">
                   <div>
                     <div className="text-sm uppercase tracking-[0.25em] text-slate-300">Resume Skills</div>
-                    <h3 className="mt-2 text-3xl font-semibold text-green-50">My current stack</h3>
+                    <h3 className="mt-2 text-3xl font-semibold text-emerald-200">My current stack</h3>
                   </div>
 
                   {resumeSkills.map((group) => (
                     <div key={group.label} className="space-y-3">
-                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-100">
+                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-500">
                         {group.label}
                       </div>
                       <div className="flex flex-wrap gap-3">
@@ -271,11 +268,11 @@ export default function Portfolio() {
                 <div className="space-y-5">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                      <Trophy className="h-5 w-5 text-green-200" />
+                      <Trophy className="h-5 w-5 text-emerald-500" />
                     </div>
                     <div>
 
-                      <h3 className="mt-1 text-2xl font-semibold text-green-50">Hackathon Wins</h3>
+                      <h3 className="mt-1 text-2xl font-semibold text-emerald-200">Hackathon Wins</h3>
                     </div>
                   </div>
 
@@ -322,15 +319,15 @@ export default function Portfolio() {
         <div className="container relative z-10">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <GlassmorphicCard>
-              <div className="text-4xl font-bold text-green-100">95%</div>
+              <div className="text-4xl font-bold text-emerald-300">95%</div>
               <p className="mt-3 text-slate-200">YOLOv11 competition object accuracy in the WATonomous pipeline.</p>
             </GlassmorphicCard>
             <GlassmorphicCard>
-              <div className="text-4xl font-bold text-green-100">30%</div>
+              <div className="text-4xl font-bold text-emerald-300">30%</div>
               <p className="mt-3 text-slate-200">Localization accuracy improvement from refined global mapping work.</p>
             </GlassmorphicCard>
             <GlassmorphicCard>
-              <div className="text-4xl font-bold text-green-100">60%</div>
+              <div className="text-4xl font-bold text-emerald-300">60%</div>
               <p className="mt-3 text-slate-200">Manual escalation time reduced through file monitor automation at BMO.</p>
             </GlassmorphicCard>
           </div>
@@ -343,11 +340,11 @@ export default function Portfolio() {
 
           <div className="mt-16 grid grid-cols-1 items-start gap-12 md:grid-cols-2">
             <GlassmorphicCard>
-              <h3 className="mb-6 text-2xl font-bold text-green-50">Contact Information</h3>
+              <h3 className="mb-6 text-2xl font-bold text-emerald-200">Contact Information</h3>
               <div className="space-y-5">
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <Mail className="h-5 w-5 text-green-200" />
+                    <Mail className="h-5 w-5 text-emerald-500" />
                   </div>
                   <div>
                     <div className="text-sm text-slate-300">University Email</div>
@@ -356,7 +353,7 @@ export default function Portfolio() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <Phone className="h-5 w-5 text-green-200" />
+                    <Phone className="h-5 w-5 text-emerald-500" />
                   </div>
                   <div>
                     <div className="text-sm text-slate-300">Phone</div>
@@ -365,7 +362,7 @@ export default function Portfolio() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <MapPin className="h-5 w-5 text-green-200" />
+                    <MapPin className="h-5 w-5 text-emerald-500" />
                   </div>
                   <div>
                     <div className="text-sm text-slate-300">Base</div>
@@ -374,7 +371,7 @@ export default function Portfolio() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <Linkedin className="h-5 w-5 text-green-200" />
+                    <Linkedin className="h-5 w-5 text-emerald-500" />
                   </div>
                   <div>
                     <div className="text-sm text-slate-300">LinkedIn</div>
@@ -382,7 +379,7 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="pt-4">
-                  <Button className="border-0 bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 text-slate-950 hover:opacity-90" asChild>
+                  <Button className="border-0 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 text-white hover:opacity-90" asChild>
                     <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
                       Open Resume on Drive
                       <ArrowRight className="ml-2 h-4 w-4" />

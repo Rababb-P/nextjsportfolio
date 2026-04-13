@@ -35,7 +35,7 @@ export function ProjectCard({
       viewport={{ once: true }}
     >
       <div
-        className="relative h-full overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/35 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300/35"
+        className="relative h-full overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/35 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald-700/45"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -44,7 +44,7 @@ export function ProjectCard({
         <div className="relative h-full flex flex-col">
           {/* Image */}
           <div className="relative overflow-hidden h-48">
-            <div className="absolute inset-0 z-10 bg-gradient-to-b from-green-300/15 via-transparent to-teal-300/20 opacity-0 transition-opacity duration-300 hover:opacity-100" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-emerald-800/24 via-transparent to-teal-800/28 opacity-0 transition-opacity duration-300 hover:opacity-100" />
             <img
               src={image || "/placeholder.svg"}
               alt={title}
@@ -54,7 +54,7 @@ export function ProjectCard({
 
           {/* Text */}
           <div className="p-6 flex-grow flex flex-col">
-            <h3 className="mb-2 text-xl font-bold text-green-50">{title}</h3>
+            <h3 className="mb-2 text-xl font-bold text-emerald-200">{title}</h3>
             <p className="mb-4 text-slate-300">{description}</p>
 
             <div className="flex flex-wrap gap-2 mb-6">
@@ -88,7 +88,7 @@ export function ProjectCard({
                 {demoUrl && (
                   <Button
                     size="sm"
-                    className="border-0 bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 text-slate-950 hover:opacity-90"
+                    className="border-0 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 text-white hover:opacity-90"
                     asChild
                   >
                     <Link href={demoUrl} target="_blank" rel="noopener noreferrer">
@@ -105,7 +105,7 @@ export function ProjectCard({
           <div className="absolute top-3 right-3 z-20">
             <div
               className={`w-3 h-3 rounded-full ${
-                isHovered ? "bg-emerald-300" : "bg-slate-500"
+                isHovered ? "bg-emerald-700" : "bg-slate-500"
               } transition-colors duration-300`}
             />
           </div>

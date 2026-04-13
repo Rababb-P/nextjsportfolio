@@ -19,9 +19,9 @@ export function CreativeHero() {
       transition={{ duration: 1 }}
     >
       <div className="absolute inset-0">
-        <div className="absolute left-10 top-8 h-24 w-24 rounded-full bg-green-300/20 blur-2xl" />
-        <div className="absolute right-6 top-24 h-28 w-28 rounded-full bg-emerald-300/20 blur-2xl" />
-        <div className="absolute bottom-6 left-1/3 h-24 w-24 rounded-full bg-teal-300/20 blur-2xl" />
+        <div className="absolute left-10 top-8 h-24 w-24 rounded-full bg-green-800/28 blur-2xl" />
+        <div className="absolute right-6 top-24 h-28 w-28 rounded-full bg-emerald-800/28 blur-2xl" />
+        <div className="absolute bottom-6 left-1/3 h-24 w-24 rounded-full bg-teal-800/28 blur-2xl" />
       </div>
 
       <motion.div
@@ -30,14 +30,14 @@ export function CreativeHero() {
         transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       >
         <div className="relative flex h-[320px] w-[320px] items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-xl md:h-[400px] md:w-[400px]">
-          <div className="absolute inset-5 rounded-full border border-dashed border-green-200/30" />
-          <div className="absolute inset-10 rounded-full border border-dashed border-teal-200/20" />
+          <div className="absolute inset-5 rounded-full border border-dashed border-emerald-700/40" />
+          <div className="absolute inset-10 rounded-full border border-dashed border-teal-700/30" />
           <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_top,rgba(134,239,172,0.16),transparent_36%),radial-gradient(circle_at_bottom,rgba(45,212,191,0.14),transparent_30%)]" />
 
           {orbitBadges.map((badge, index) => (
             <motion.div
               key={badge.label}
-              className={`absolute rounded-full border border-white/15 bg-slate-950/70 px-3 py-2 text-xs uppercase tracking-[0.25em] text-green-100 shadow-lg shadow-slate-950/30 ${badge.className}`}
+              className={`absolute rounded-full border border-white/15 bg-slate-950/70 px-3 py-2 text-xs uppercase tracking-[0.25em] text-emerald-300 shadow-lg shadow-slate-950/30 ${badge.className}`}
               animate={{ y: [0, index % 2 === 0 ? -8 : 8, 0] }}
               transition={{ duration: 4 + index, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
             >

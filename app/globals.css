@@ -71,7 +71,7 @@
   }
 
   ::selection {
-    background: rgba(74, 222, 128, 0.35);
+    background: rgba(21, 128, 61, 0.45);
     color: #ecfdf5;
   }
 }
@@ -115,7 +115,7 @@ body::before {
   pointer-events: none;
   background-image:
     radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    radial-gradient(rgba(74, 222, 128, 0.1) 1px, transparent 1px);
+    radial-gradient(rgba(21, 128, 61, 0.14) 1px, transparent 1px);
   background-position: 0 0, 24px 24px;
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
