@@ -22,6 +22,7 @@ import { FloatingNav } from "@/components/floating-nav"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
+import { FallingPattern } from "@/components/ui/falling-pattern"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 
 const resumeUrl = "https://drive.google.com/file/d/14YLR1ZixK4FxT7ogixuHqiahCWm0ciG7/view?usp=sharing"
@@ -394,9 +395,19 @@ export default function Portfolio() {
       </section>
 
       <footer className="px-4 py-10">
-        <div className="container flex flex-col items-center justify-between gap-6 rounded-[28px] border border-white/10 bg-slate-950/35 px-6 py-8 text-center backdrop-blur-xl md:flex-row md:text-left">
-          <div className="text-slate-300">@ 2026 Rababb Pannu</div>
-          <div className="flex gap-6">
+        <div className="container relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/40 px-6 py-8 text-center backdrop-blur-xl md:flex-row md:text-left">
+          <FallingPattern
+            aria-hidden="true"
+            className="absolute inset-0 p-0 opacity-85"
+            color="rgba(34, 197, 94, 0.8)"
+            backgroundColor="#000000"
+            duration={165}
+            blurIntensity="0.24rem"
+            density={0.88}
+          />
+          <div className="absolute inset-0 bg-black/16"></div>
+          <div className="relative text-slate-300">@ 2026 Rababb Pannu</div>
+          <div className="relative flex gap-6">
             <Link href="https://github.com/Rababb-P" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github className="h-6 w-6 text-slate-300 transition hover:text-white" />
             </Link>

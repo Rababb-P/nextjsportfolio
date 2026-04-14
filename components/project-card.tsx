@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { FallingPattern } from "@/components/ui/falling-pattern"
 
 interface ProjectCardProps {
   title: string
@@ -35,11 +36,20 @@ export function ProjectCard({
       viewport={{ once: true }}
     >
       <div
-        className="relative h-full overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/35 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald-700/45"
+        className="relative h-full overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-emerald-700/45"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(134,239,172,0.18),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.14),transparent_28%)]"></div>
+        <FallingPattern
+          aria-hidden="true"
+          className="absolute inset-0 p-0 opacity-90"
+          color="rgba(34, 197, 94, 0.82)"
+          backgroundColor="#000000"
+          duration={150}
+          blurIntensity="0.24rem"
+          density={0.88}
+        />
+        <div className="absolute inset-0 bg-black/14"></div>
 
         <div className="relative h-full flex flex-col">
           {/* Image */}

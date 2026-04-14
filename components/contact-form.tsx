@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Send } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { FallingPattern } from "@/components/ui/falling-pattern"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
@@ -15,9 +16,17 @@ export function ContactForm() {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/35 p-6 backdrop-blur-xl transition-all duration-300 hover:border-emerald-700/45 md:p-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(134,239,172,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.16),transparent_28%)]"></div>
-        <div className="absolute -inset-1 rounded-[32px] bg-gradient-to-r from-green-700/16 via-emerald-700/14 to-teal-700/16 blur-xl opacity-70 transition duration-700"></div>
+      <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-emerald-700/45 md:p-8">
+        <FallingPattern
+          aria-hidden="true"
+          className="absolute inset-0 p-0 opacity-90"
+          color="rgba(34, 197, 94, 0.82)"
+          backgroundColor="#000000"
+          duration={140}
+          blurIntensity="0.24rem"
+          density={0.88}
+        />
+        <div className="absolute inset-0 bg-black/16"></div>
 
         <div className="relative">
           <div className="mb-6 space-y-3">

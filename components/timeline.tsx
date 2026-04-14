@@ -1,6 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
+
+import { FallingPattern } from "@/components/ui/falling-pattern"
 import { useMobile } from "@/hooks/use-mobile"
 
 const experiences = [
@@ -50,8 +52,17 @@ export function Timeline() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/35 p-6 backdrop-blur-xl transition-all duration-300 hover:border-emerald-700/45">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(134,239,172,0.18),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(45,212,191,0.14),transparent_26%)]"></div>
+            <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-emerald-700/45">
+              <FallingPattern
+                aria-hidden="true"
+                className="absolute inset-0 p-0 opacity-90"
+                color="rgba(34, 197, 94, 0.82)"
+                backgroundColor="#000000"
+                duration={145}
+                blurIntensity="0.24rem"
+                density={0.88}
+              />
+              <div className="absolute inset-0 bg-black/16"></div>
 
               <div className="relative">
                 <h3 className="text-xl font-bold text-emerald-200">{experience.title}</h3>
