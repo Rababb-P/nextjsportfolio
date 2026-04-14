@@ -52,7 +52,7 @@ const hackathonWins = [
 
 const projects = [
   {
-    title: "Reparo",
+    title: "Reparo - Hack Canada Winner",
     description:
       "An agentic repair assistant that diagnoses broken household items and one-click checks out exact replacement parts from live Shopify inventory.",
     tags: ["Python", "Agentic AI", "Shopify Storefront API"],
@@ -60,7 +60,7 @@ const projects = [
     demoUrl: "https://devpost.com/software/reparo",
   },
   {
-    title: "StudySync",
+    title: "StudySync - Hack The North Winner",
     description:
       "A collaborative AI study platform that turns lip-read videos into notes and quizzes, built during Hack the North and awarded Best Use of Auth0.",
     tags: ["Python", "React", "Auth0", "MongoDB", "OpenAI", "Cohere"],
@@ -70,7 +70,7 @@ const projects = [
     repoUrl: "https://github.com/Rababb-P/StudySync-HTN",
   },
   {
-    title: "Smart Bin",
+    title: "Smart Bin - StarterHacks",
     description:
       "A real-world ML and hardware build that classifies recycling versus garbage and physically sorts it using an Arduino-driven mechanism.",
     tags: ["Python", "TensorFlow", "Arduino", "Computer Vision"],
@@ -96,7 +96,7 @@ const projects = [
     repoUrl: "https://github.com/Rababb-P/2025_Robot",
   },
   {
-    title: "Seek Jr Winning Rover",
+    title: "Autonomous Rover - UofT SEEK JR Winner",
     description:
       "A first-place hackathon rover that navigated a maze autonomously, then switched into Bluetooth control to scan barcodes.",
     tags: ["Arduino", "C++", "Sensors", "Autonomy"],
