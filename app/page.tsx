@@ -125,13 +125,13 @@ const highlights = [
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen overflow-hidden text-white">
+    <div className="min-h-screen overflow-x-hidden text-white">
       <ScrollProgress />
       <FloatingNav />
 
       <div className="dark">
         <AuroraBackground className="bg-slate-950 text-white">
-          <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-4 py-24">
+          <section className="relative flex min-h-svh w-full items-center justify-center overflow-x-clip px-4 pb-16 pt-28 md:py-24">
             <div className="container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
               <div className="space-y-8">
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-emerald-200 backdrop-blur-sm">
@@ -139,14 +139,14 @@ export default function Portfolio() {
                   Marvel Rivals Player at Heart
                 </div>
                 <div className="space-y-5">
-                  <h1 className="max-w-4xl text-5xl font-bold leading-tight md:text-7xl">
+                  <h1 className="max-w-4xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
                     Rababb Pannu,
                     <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
                       {" "}
                       hackathon enthusiast,
                     </span>
                   </h1>
-                  <p className="max-w-[650px] text-lg leading-8 text-slate-200 md:text-xl">
+                  <p className="max-w-[650px] text-base leading-7 text-slate-200 sm:text-lg md:text-xl md:leading-8">
                     I&apos;m a Computer Engineering student at the University of Waterloo, currently blending machine
                     learning, robotics, and full-stack product work through experiences at BMO, WATonomous, and
                     NeedList.

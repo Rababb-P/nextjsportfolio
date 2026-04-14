@@ -50,7 +50,7 @@ export function FloatingNav() {
   return (
     <>
       <motion.div
-        className={`fixed top-6 left-1/2 z-50 -translate-x-1/2 ${shouldShowNav ? "" : "pointer-events-none"}`}
+        className={`fixed inset-x-3 top-4 z-50 md:left-1/2 md:right-auto md:top-6 md:w-max md:-translate-x-1/2 ${shouldShowNav ? "" : "pointer-events-none"}`}
         initial={{ y: -24, opacity: 0, scale: 0.96 }}
         animate={{
           y: shouldShowNav ? 0 : -24,
@@ -59,19 +59,19 @@ export function FloatingNav() {
         }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="relative min-w-[280px] rounded-full border border-white/15 bg-slate-950/60 px-4 py-3 shadow-lg backdrop-blur-md md:min-w-0">
+        <div className="relative w-full rounded-full border border-white/15 bg-slate-950/60 px-4 py-3 shadow-lg backdrop-blur-md md:min-w-0 md:w-auto">
           <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-green-700/24 via-emerald-700/24 to-teal-700/24 blur opacity-60"></div>
 
           {isMobile ? (
-            <div className="relative flex items-center justify-between gap-4">
-              <Link href="/" className="font-bold text-lg">
+            <div className="relative flex min-w-0 items-center justify-between gap-3">
+              <Link href="/" className="min-w-0 font-bold text-lg leading-none">
                 <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">Rababb</span>
                 <span className="text-white">Pannu</span>
               </Link>
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-slate-300 hover:bg-white/10 hover:text-white"
+                className="shrink-0 text-slate-300 hover:bg-white/10 hover:text-white"
                 onClick={() => setIsOpen((open) => !open)}
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
