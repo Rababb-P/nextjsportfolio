@@ -14,7 +14,7 @@ type FallingPatternProps = React.ComponentProps<"div"> & {
 }
 
 export function FallingPattern({
-  color = "rgba(34, 197, 94, 0.82)",
+  color = "rgba(22, 163, 74, 0.82)",
   backgroundColor = "#000000",
   duration = 150,
   blurIntensity = "0.25rem",
@@ -149,7 +149,7 @@ export function FallingPattern({
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           backdropFilter: `blur(${blurIntensity})`,
-          backgroundImage: `radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.03) 0, transparent 2px, ${backgroundColor} 2px)`,
+          backgroundImage: `radial-gradient(circle at 50% 50%, rgba(22, 163, 74, 0.03) 0, transparent 2px, ${backgroundColor} 2px)`,
           backgroundSize: `${9 * density}px ${9 * density}px`,
         }}
       />

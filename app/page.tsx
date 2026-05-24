@@ -22,7 +22,6 @@ import { FloatingNav } from "@/components/floating-nav"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { SectionHeading } from "@/components/section-heading"
 import { GlassmorphicCard } from "@/components/glassmorphic-card"
-import { FallingPattern } from "@/components/ui/falling-pattern"
 import { AuroraBackground } from "@/components/ui/aurora-background"
 
 const resumeUrl = "https://drive.google.com/file/d/14YLR1ZixK4FxT7ogixuHqiahCWm0ciG7/view?usp=sharing"
@@ -131,12 +130,12 @@ export default function Portfolio() {
       <FloatingNav />
 
       <div className="dark">
-        <AuroraBackground className="bg-slate-950 text-white">
+        <AuroraBackground className="items-stretch justify-start bg-slate-950 text-white" showRadialGradient={false}>
           <section className="relative flex min-h-svh w-full items-center justify-center overflow-x-clip px-4 pb-16 pt-28 md:py-24">
             <div className="container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-emerald-200 backdrop-blur-sm">
-                  <Sparkles className="h-4 w-4 text-emerald-500" />
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-emerald-600 backdrop-blur-sm">
+                  <Sparkles className="h-4 w-4 text-emerald-600" />
                   Marvel Rivals Player at Heart
                 </div>
                 <div className="space-y-5">
@@ -155,7 +154,7 @@ export default function Portfolio() {
                 </div>
                 <div className="flex flex-wrap gap-4">
                   <Link href="#projects" scroll={true}>
-                    <Button className="border-0 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 text-white hover:opacity-90">
+                    <Button className="border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white hover:opacity-90">
                       View Projects
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -219,210 +218,201 @@ export default function Portfolio() {
               </div>
             </div>
           </section>
-        </AuroraBackground>
-      </div>
 
-      <section id="about" className="relative px-4 py-28">
-        <div className="container relative z-10">
-          <SectionHeading title="Quick Overview" subtitle="How I like to build" />
+          <section id="about" className="relative px-4 py-28">
+            <div className="container relative z-10">
+              <SectionHeading title="Quick Overview" subtitle="How I like to build" />
 
-          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="grid gap-6">
-              {highlights.map((item) => (
-                <GlassmorphicCard key={item.title}>
-                  <item.icon className="mb-4 h-8 w-8 text-emerald-500" />
-                  <h3 className="mb-2 text-xl font-semibold text-emerald-200">{item.title}</h3>
-                  <p className="text-sm leading-6 text-slate-200">{item.text}</p>
-                </GlassmorphicCard>
-              ))}
-            </div>
+              <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+                <div className="grid gap-6">
+                  {highlights.map((item) => (
+                    <GlassmorphicCard key={item.title}>
+                      <item.icon className="mb-4 h-8 w-8 text-emerald-600" />
+                      <h3 className="mb-2 text-xl font-semibold text-emerald-600">{item.title}</h3>
+                      <p className="text-sm leading-6 text-slate-200">{item.text}</p>
+                    </GlassmorphicCard>
+                  ))}
+                </div>
 
-            <div className="grid gap-6">
-              <GlassmorphicCard>
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-sm uppercase tracking-[0.25em] text-slate-300">Resume Skills</div>
-                    <h3 className="mt-2 text-3xl font-semibold text-emerald-200">My current stack</h3>
-                  </div>
-
-                  {resumeSkills.map((group) => (
-                    <div key={group.label} className="space-y-3">
-                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-500">
-                        {group.label}
+                <div className="grid gap-6">
+                  <GlassmorphicCard>
+                    <div className="space-y-6">
+                      <div>
+                        <div className="text-sm uppercase tracking-[0.25em] text-slate-300">Resume Skills</div>
+                        <h3 className="mt-2 text-3xl font-semibold text-emerald-600">My current stack</h3>
                       </div>
-                      <div className="flex flex-wrap gap-3">
-                        {group.items.map((item) => (
-                          <span
-                            key={item}
-                            className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100"
+
+                      {resumeSkills.map((group) => (
+                        <div key={group.label} className="space-y-3">
+                          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+                            {group.label}
+                          </div>
+                          <div className="flex flex-wrap gap-3">
+                            {group.items.map((item) => (
+                              <span
+                                key={item}
+                                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100"
+                              >
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </GlassmorphicCard>
+
+                  <GlassmorphicCard>
+                    <div className="space-y-5">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                          <Trophy className="h-5 w-5 text-emerald-600" />
+                        </div>
+                        <div>
+
+                          <h3 className="mt-1 text-2xl font-semibold text-emerald-600">Hackathon Wins</h3>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {hackathonWins.map((win) => (
+                          <div
+                            key={win}
+                            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-100"
                           >
-                            {item}
-                          </span>
+                            {win}
+                          </div>
                         ))}
                       </div>
                     </div>
-                  ))}
-                </div>
-              </GlassmorphicCard>
-
-              <GlassmorphicCard>
-                <div className="space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                      <Trophy className="h-5 w-5 text-emerald-500" />
-                    </div>
-                    <div>
-
-                      <h3 className="mt-1 text-2xl font-semibold text-emerald-200">Hackathon Wins</h3>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {hackathonWins.map((win) => (
-                      <div
-                        key={win}
-                        className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-100"
-                      >
-                        {win}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </GlassmorphicCard>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="relative px-4 py-28">
-        <div className="container relative z-10">
-          <SectionHeading title="Featured Builds" subtitle="Projects from hackathons, robotics, AI, and product work" />
-
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" className="relative px-4 py-28">
-        <div className="container relative z-10">
-          <SectionHeading title="Experience Timeline" subtitle="Internships + Design Teams" />
-
-          <div className="mt-16">
-            <Timeline />
-          </div>
-        </div>
-      </section>
-
-      <section className="relative px-4 py-10">
-        <div className="container relative z-10">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <GlassmorphicCard>
-              <div className="text-4xl font-bold text-emerald-300">95%</div>
-              <p className="mt-3 text-slate-200">YOLOv11 competition object accuracy in the WATonomous pipeline.</p>
-            </GlassmorphicCard>
-            <GlassmorphicCard>
-              <div className="text-4xl font-bold text-emerald-300">30%</div>
-              <p className="mt-3 text-slate-200">Localization accuracy improvement from refined global mapping work.</p>
-            </GlassmorphicCard>
-            <GlassmorphicCard>
-              <div className="text-4xl font-bold text-emerald-300">60%</div>
-              <p className="mt-3 text-slate-200">Manual escalation time reduced through file monitor automation at BMO.</p>
-            </GlassmorphicCard>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="relative px-4 py-28">
-        <div className="container relative z-10">
-          <SectionHeading title="Let&apos;s Make Something" subtitle="Open to opportunities and collaborations" />
-
-          <div className="mt-16 grid grid-cols-1 items-start gap-12 md:grid-cols-2">
-            <GlassmorphicCard>
-              <h3 className="mb-6 text-2xl font-bold text-emerald-200">Contact Information</h3>
-              <div className="space-y-5">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <Mail className="h-5 w-5 text-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-slate-300">University Email</div>
-                    <div className="font-medium text-white">rpannu@uwaterloo.ca</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <Phone className="h-5 w-5 text-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-slate-300">Phone</div>
-                    <div className="font-medium text-white">437-388-6319</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <MapPin className="h-5 w-5 text-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-slate-300">Base</div>
-                    <div className="font-medium text-white">Toronto and Waterloo, Ontario</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                    <Linkedin className="h-5 w-5 text-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-slate-300">LinkedIn</div>
-                    <div className="font-medium text-white">linkedin.com/in/rababb-pannu</div>
-                  </div>
-                </div>
-                <div className="pt-4">
-                  <Button className="border-0 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 text-white hover:opacity-90" asChild>
-                    <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                      Open Resume on Drive
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  </GlassmorphicCard>
                 </div>
               </div>
-            </GlassmorphicCard>
-            <ContactForm />
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
 
-      <footer className="px-4 py-10">
-        <div className="container relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/40 px-6 py-8 text-center backdrop-blur-xl md:flex-row md:text-left">
-          <FallingPattern
-            aria-hidden="true"
-            className="absolute inset-0 p-0 opacity-85"
-            color="rgba(34, 197, 94, 0.8)"
-            backgroundColor="#000000"
-            duration={165}
-            blurIntensity="0.24rem"
-            density={0.88}
-          />
-          <div className="absolute inset-0 bg-black/16"></div>
-          <div className="relative text-slate-300">@ 2026 Rababb Pannu</div>
-          <div className="relative flex gap-6">
-            <Link href="https://github.com/Rababb-P" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github className="h-6 w-6 text-slate-300 transition hover:text-white" />
-            </Link>
-            <Link href="https://www.linkedin.com/in/rababb-pannu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin className="h-6 w-6 text-slate-300 transition hover:text-white" />
-            </Link>
-            <Link href="https://instagram.com/rababb_p" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <Instagram className="h-6 w-6 text-slate-300 transition hover:text-white" />
-            </Link>
-            <Link href="mailto:rpannu@uwaterloo.ca" aria-label="Email">
-              <Mail className="h-6 w-6 text-slate-300 transition hover:text-white" />
-            </Link>
-          </div>
-        </div>
-      </footer>
+          <section id="projects" className="relative px-4 py-28">
+            <div className="container relative z-10">
+              <SectionHeading title="Featured Builds" subtitle="Projects from hackathons, robotics, AI, and product work" />
+
+              <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {projects.map((project) => (
+                  <ProjectCard key={project.title} {...project} />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="experience" className="relative px-4 py-28">
+            <div className="container relative z-10">
+              <SectionHeading title="Experience Timeline" subtitle="Internships + Design Teams" />
+
+              <div className="mt-16">
+                <Timeline />
+              </div>
+            </div>
+          </section>
+
+          <section className="relative px-4 py-10">
+            <div className="container relative z-10">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <GlassmorphicCard>
+                  <div className="text-4xl font-bold text-emerald-600">95%</div>
+                  <p className="mt-3 text-slate-200">YOLOv11 competition object accuracy in the WATonomous pipeline.</p>
+                </GlassmorphicCard>
+                <GlassmorphicCard>
+                  <div className="text-4xl font-bold text-emerald-600">30%</div>
+                  <p className="mt-3 text-slate-200">Localization accuracy improvement from refined global mapping work.</p>
+                </GlassmorphicCard>
+                <GlassmorphicCard>
+                  <div className="text-4xl font-bold text-emerald-600">60%</div>
+                  <p className="mt-3 text-slate-200">Manual escalation time reduced through file monitor automation at BMO.</p>
+                </GlassmorphicCard>
+              </div>
+            </div>
+          </section>
+
+          <section id="contact" className="relative px-4 py-28">
+            <div className="container relative z-10">
+              <SectionHeading title="Let&apos;s Make Something" subtitle="Open to opportunities and collaborations" />
+
+              <div className="mt-16 grid grid-cols-1 items-start gap-12 md:grid-cols-2">
+                <GlassmorphicCard>
+                  <h3 className="mb-6 text-2xl font-bold text-emerald-600">Contact Information</h3>
+                  <div className="space-y-5">
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                        <Mail className="h-5 w-5 text-emerald-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm text-slate-300">University Email</div>
+                        <div className="font-medium text-white">rpannu@uwaterloo.ca</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                        <Phone className="h-5 w-5 text-emerald-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm text-slate-300">Phone</div>
+                        <div className="font-medium text-white">437-388-6319</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                        <MapPin className="h-5 w-5 text-emerald-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm text-slate-300">Base</div>
+                        <div className="font-medium text-white">Toronto and Waterloo, Ontario</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                        <Linkedin className="h-5 w-5 text-emerald-600" />
+                      </div>
+                      <div>
+                        <div className="text-sm text-slate-300">LinkedIn</div>
+                        <div className="font-medium text-white">linkedin.com/in/rababb-pannu</div>
+                      </div>
+                    </div>
+                    <div className="pt-4">
+                      <Button className="border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white hover:opacity-90" asChild>
+                        <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
+                          Open Resume on Drive
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </GlassmorphicCard>
+                <ContactForm />
+              </div>
+            </div>
+          </section>
+
+          <footer className="px-4 py-10">
+            <div className="container relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/40 px-6 py-8 text-center backdrop-blur-xl md:flex-row md:text-left">
+              <div className="absolute inset-0 bg-black/16"></div>
+              <div className="relative text-slate-300">@ 2026 Rababb Pannu</div>
+              <div className="relative flex gap-6">
+                <Link href="https://github.com/Rababb-P" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <Github className="h-6 w-6 text-slate-300 transition hover:text-white" />
+                </Link>
+                <Link href="https://www.linkedin.com/in/rababb-pannu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <Linkedin className="h-6 w-6 text-slate-300 transition hover:text-white" />
+                </Link>
+                <Link href="https://instagram.com/rababb_p" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <Instagram className="h-6 w-6 text-slate-300 transition hover:text-white" />
+                </Link>
+                <Link href="mailto:rpannu@uwaterloo.ca" aria-label="Email">
+                  <Mail className="h-6 w-6 text-slate-300 transition hover:text-white" />
+                </Link>
+              </div>
+            </div>
+          </footer>
+        </AuroraBackground>
+      </div>
     </div>
   )
 }

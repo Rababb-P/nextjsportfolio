@@ -60,7 +60,7 @@ export function FloatingNav() {
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="relative w-full rounded-full border border-white/15 bg-slate-950/60 px-4 py-3 shadow-lg backdrop-blur-md md:min-w-0 md:w-auto">
-          <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-green-700/24 via-emerald-700/24 to-teal-700/24 blur opacity-60"></div>
+          <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-green-600/24 via-emerald-600/24 to-teal-600/24 blur opacity-60"></div>
 
           {isMobile ? (
             <div className="relative flex min-w-0 items-center justify-between gap-3">
@@ -100,7 +100,7 @@ export function FloatingNav() {
               ))}
               <Button
                 size="sm"
-                className="ml-2 border-0 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
+                className="ml-2 border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
                 asChild
               >
                 <Link
@@ -143,7 +143,7 @@ export function FloatingNav() {
                 >
                   <Link
                     href={item.href}
-                    className="block px-8 py-4 text-2xl font-medium text-white transition-colors hover:text-emerald-500"
+                    className="block px-8 py-4 text-2xl font-medium text-white transition-colors hover:text-emerald-600"
                     onClick={handleNavClick}
                   >
                     {item.name}
@@ -157,7 +157,7 @@ export function FloatingNav() {
                 transition={{ duration: 0.24, delay: 0.2 }}
               >
                 <Button
-                  className="mt-6 border-0 bg-gradient-to-r from-green-700 via-emerald-700 to-teal-700 text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
+                  className="mt-6 border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
                   asChild
                 >
                   <Link
