@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,7 +57,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+    font-family: "Segoe UI Variable", "IBM Plex Sans", "Aptos", "Segoe UI", sans-serif;
     background: #000000;
     color: #f8fafc;
   }
@@ -66,12 +68,12 @@
   h4,
   h5,
   h6 {
-    font-family: Georgia, "Times New Roman", serif;
-    letter-spacing: -0.03em;
+    font-family: "Rajdhani", "IBM Plex Sans Condensed", "Segoe UI Variable", "Segoe UI", sans-serif;
+    letter-spacing: 0;
   }
 
   ::selection {
-    background: rgba(22, 163, 74, 0.45);
+    background: rgba(37, 99, 235, 0.45);
     color: #f8fafc;
   }
 }
@@ -108,19 +110,19 @@ html {
   scroll-behavior: smooth;
 }
 
-body::before {
+.landing-background::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
   background-image:
     radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    radial-gradient(rgba(22, 163, 74, 0.14) 1px, transparent 1px);
+    radial-gradient(rgba(37, 99, 235, 0.14) 1px, transparent 1px);
   background-position: 0 0, 24px 24px;
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
   opacity: 0.5;
-  z-index: -1;
+  z-index: 0;
 }
 
 @keyframes floaty {

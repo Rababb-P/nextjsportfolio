@@ -16,7 +16,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
 import { Timeline } from "@/components/timeline"
-import { ContactForm } from "@/components/contact-form"
 import { CreativeHero } from "@/components/creative-hero"
 import { FloatingNav } from "@/components/floating-nav"
 import { ScrollProgress } from "@/components/scroll-progress"
@@ -125,23 +124,23 @@ const highlights = [
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen overflow-x-hidden text-white">
+    <div className="min-h-screen overflow-x-hidden bg-black text-white">
       <ScrollProgress />
       <FloatingNav />
 
-      <div className="dark">
-        <AuroraBackground className="items-stretch justify-start bg-slate-950 text-white" showRadialGradient={false}>
-          <section className="relative flex min-h-svh w-full items-center justify-center overflow-x-clip px-4 pb-16 pt-28 md:py-24">
+      <div className="dark bg-black">
+        <AuroraBackground className="items-stretch justify-start bg-black text-white" showRadialGradient={false}>
+          <section className="landing-background relative flex min-h-svh w-full items-center justify-center overflow-x-clip px-4 pb-16 pt-28 md:py-24">
             <div className="container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
               <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-emerald-600 backdrop-blur-sm">
-                  <Sparkles className="h-4 w-4 text-emerald-600" />
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-blue-600 backdrop-blur-sm">
+                  <Sparkles className="h-4 w-4 text-blue-600" />
                   Marvel Rivals Player at Heart
                 </div>
                 <div className="space-y-5">
                   <h1 className="max-w-4xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
                     Rababb Pannu,
-                    <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                    <span className="text-blue-600">
                       {" "}
                       hackathon enthusiast,
                     </span>
@@ -154,7 +153,7 @@ export default function Portfolio() {
                 </div>
                 <div className="flex flex-wrap gap-4">
                   <Link href="#projects" scroll={true}>
-                    <Button className="border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white hover:opacity-90">
+                    <Button className="border-0 bg-blue-600 text-white hover:bg-blue-600/90">
                       View Projects
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -218,7 +217,9 @@ export default function Portfolio() {
               </div>
             </div>
           </section>
+        </AuroraBackground>
 
+        <div className="bg-black">
           <section id="about" className="relative px-4 py-28">
             <div className="container relative z-10">
               <SectionHeading title="Quick Overview" subtitle="How I like to build" />
@@ -227,8 +228,8 @@ export default function Portfolio() {
                 <div className="grid gap-6">
                   {highlights.map((item) => (
                     <GlassmorphicCard key={item.title}>
-                      <item.icon className="mb-4 h-8 w-8 text-emerald-600" />
-                      <h3 className="mb-2 text-xl font-semibold text-emerald-600">{item.title}</h3>
+                      <item.icon className="mb-4 h-8 w-8 text-blue-600" />
+                      <h3 className="mb-2 text-xl font-semibold text-blue-600">{item.title}</h3>
                       <p className="text-sm leading-6 text-slate-200">{item.text}</p>
                     </GlassmorphicCard>
                   ))}
@@ -239,12 +240,12 @@ export default function Portfolio() {
                     <div className="space-y-6">
                       <div>
                         <div className="text-sm uppercase tracking-[0.25em] text-slate-300">Resume Skills</div>
-                        <h3 className="mt-2 text-3xl font-semibold text-emerald-600">My current stack</h3>
+                        <h3 className="mt-2 text-3xl font-semibold text-blue-600">My current stack</h3>
                       </div>
 
                       {resumeSkills.map((group) => (
                         <div key={group.label} className="space-y-3">
-                          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+                          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
                             {group.label}
                           </div>
                           <div className="flex flex-wrap gap-3">
@@ -266,11 +267,11 @@ export default function Portfolio() {
                     <div className="space-y-5">
                       <div className="flex items-center gap-3">
                         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                          <Trophy className="h-5 w-5 text-emerald-600" />
+                          <Trophy className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
 
-                          <h3 className="mt-1 text-2xl font-semibold text-emerald-600">Hackathon Wins</h3>
+                          <h3 className="mt-1 text-2xl font-semibold text-blue-600">Hackathon Wins</h3>
                         </div>
                       </div>
 
@@ -317,15 +318,15 @@ export default function Portfolio() {
             <div className="container relative z-10">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 <GlassmorphicCard>
-                  <div className="text-4xl font-bold text-emerald-600">95%</div>
+                  <div className="text-4xl font-bold text-blue-600">95%</div>
                   <p className="mt-3 text-slate-200">YOLOv11 competition object accuracy in the WATonomous pipeline.</p>
                 </GlassmorphicCard>
                 <GlassmorphicCard>
-                  <div className="text-4xl font-bold text-emerald-600">30%</div>
+                  <div className="text-4xl font-bold text-blue-600">30%</div>
                   <p className="mt-3 text-slate-200">Localization accuracy improvement from refined global mapping work.</p>
                 </GlassmorphicCard>
                 <GlassmorphicCard>
-                  <div className="text-4xl font-bold text-emerald-600">60%</div>
+                  <div className="text-4xl font-bold text-blue-600">60%</div>
                   <p className="mt-3 text-slate-200">Manual escalation time reduced through file monitor automation at BMO.</p>
                 </GlassmorphicCard>
               </div>
@@ -336,13 +337,13 @@ export default function Portfolio() {
             <div className="container relative z-10">
               <SectionHeading title="Let&apos;s Make Something" subtitle="Open to opportunities and collaborations" />
 
-              <div className="mt-16 grid grid-cols-1 items-start gap-12 md:grid-cols-2">
+              <div className="mx-auto mt-16 max-w-2xl">
                 <GlassmorphicCard>
-                  <h3 className="mb-6 text-2xl font-bold text-emerald-600">Contact Information</h3>
+                  <h3 className="mb-6 text-2xl font-bold text-blue-600">Contact Information</h3>
                   <div className="space-y-5">
                     <div className="flex items-center gap-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <Mail className="h-5 w-5 text-emerald-600" />
+                        <Mail className="h-5 w-5 text-blue-600" />
                       </div>
                       <div>
                         <div className="text-sm text-slate-300">University Email</div>
@@ -351,7 +352,7 @@ export default function Portfolio() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <Phone className="h-5 w-5 text-emerald-600" />
+                        <Phone className="h-5 w-5 text-blue-600" />
                       </div>
                       <div>
                         <div className="text-sm text-slate-300">Phone</div>
@@ -360,7 +361,7 @@ export default function Portfolio() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <MapPin className="h-5 w-5 text-emerald-600" />
+                        <MapPin className="h-5 w-5 text-blue-600" />
                       </div>
                       <div>
                         <div className="text-sm text-slate-300">Base</div>
@@ -369,7 +370,7 @@ export default function Portfolio() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <Linkedin className="h-5 w-5 text-emerald-600" />
+                        <Linkedin className="h-5 w-5 text-blue-600" />
                       </div>
                       <div>
                         <div className="text-sm text-slate-300">LinkedIn</div>
@@ -377,7 +378,7 @@ export default function Portfolio() {
                       </div>
                     </div>
                     <div className="pt-4">
-                      <Button className="border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white hover:opacity-90" asChild>
+                      <Button className="border-0 bg-blue-600 text-white hover:bg-blue-600/90" asChild>
                         <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
                           Open Resume on Drive
                           <ArrowRight className="ml-2 h-4 w-4" />
@@ -386,7 +387,6 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </GlassmorphicCard>
-                <ContactForm />
               </div>
             </div>
           </section>
@@ -411,7 +411,7 @@ export default function Portfolio() {
               </div>
             </div>
           </footer>
-        </AuroraBackground>
+        </div>
       </div>
     </div>
   )

@@ -17,15 +17,15 @@ export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
         viewport={{ once: true }}
       >
         <div className="inline-block">
-          <div className="relative mb-2 rounded-full border border-emerald-600/30 bg-white/10 px-4 py-1.5 text-sm font-medium text-emerald-600 backdrop-blur-sm">
+          <div className="relative mb-2 rounded-full border border-blue-600/30 bg-white/10 px-4 py-1.5 text-sm font-medium text-blue-600 backdrop-blur-sm">
             <span className="relative z-10">{subtitle}</span>
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-600/22 via-emerald-600/18 to-teal-600/22 animate-pulse"></span>
+            <span className="absolute inset-0 rounded-full bg-blue-600/16 animate-pulse"></span>
           </div>
         </div>
       </motion.div>
 
       <motion.h2
-        className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-4xl font-bold text-transparent md:text-5xl"
+        className="text-4xl font-bold text-blue-600 md:text-5xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -35,7 +35,7 @@ export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
       </motion.h2>
 
       <motion.div
-        className="mx-auto mt-6 h-1.5 w-24 rounded-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600"
+        className="mx-auto mt-6 h-1.5 w-24 rounded-full bg-blue-600"
         initial={{ opacity: 0, scale: 0 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}

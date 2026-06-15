@@ -51,11 +51,11 @@ export function Timeline() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-emerald-600/45">
+            <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-slate-950/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-blue-600/45">
               <div className="absolute inset-0 bg-black/16"></div>
 
               <div className="relative">
-                <h3 className="text-xl font-bold text-emerald-600">{experience.title}</h3>
+                <h3 className="text-xl font-bold text-blue-600">{experience.title}</h3>
                 <div className="mb-4 text-slate-300">
                   {experience.company} | {experience.period}
                 </div>
@@ -67,7 +67,7 @@ export function Timeline() {
           {!isMobile && (
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
               <motion.div
-                className="z-10 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600"
+                className="z-10 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.3 }}

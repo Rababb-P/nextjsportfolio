@@ -60,12 +60,12 @@ export function FloatingNav() {
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="relative w-full rounded-full border border-white/15 bg-slate-950/60 px-4 py-3 shadow-lg backdrop-blur-md md:min-w-0 md:w-auto">
-          <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-green-600/24 via-emerald-600/24 to-teal-600/24 blur opacity-60"></div>
+          <div className="absolute -inset-0.5 rounded-full bg-blue-600/24 blur opacity-60"></div>
 
           {isMobile ? (
             <div className="relative flex min-w-0 items-center justify-between gap-3">
               <Link href="/" className="min-w-0 font-bold text-lg leading-none">
-                <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">Rababb</span>
+                <span className="text-blue-600">Rababb</span>
                 <span className="text-white">Pannu</span>
               </Link>
               <Button
@@ -80,7 +80,7 @@ export function FloatingNav() {
           ) : (
             <div className="relative flex items-center gap-1">
               <Link href="/" className="font-bold text-lg mr-4">
-                <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">Rababb</span>
+                <span className="text-blue-600">Rababb</span>
                 <span className="text-white">Pannu</span>
               </Link>
               {navItems.map((item) => (
@@ -100,7 +100,7 @@ export function FloatingNav() {
               ))}
               <Button
                 size="sm"
-                className="ml-2 border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
+                className="ml-2 border-0 bg-blue-600 text-white transition-all duration-300 hover:scale-[1.02] hover:bg-blue-600/90"
                 asChild
               >
                 <Link
@@ -143,7 +143,7 @@ export function FloatingNav() {
                 >
                   <Link
                     href={item.href}
-                    className="block px-8 py-4 text-2xl font-medium text-white transition-colors hover:text-emerald-600"
+                    className="block px-8 py-4 text-2xl font-medium text-white transition-colors hover:text-blue-600"
                     onClick={handleNavClick}
                   >
                     {item.name}
@@ -157,7 +157,7 @@ export function FloatingNav() {
                 transition={{ duration: 0.24, delay: 0.2 }}
               >
                 <Button
-                  className="mt-6 border-0 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-90"
+                  className="mt-6 border-0 bg-blue-600 text-white transition-all duration-300 hover:scale-[1.02] hover:bg-blue-600/90"
                   asChild
                 >
                   <Link
