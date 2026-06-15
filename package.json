@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "node scripts/static-server.mjs out",
+    "build": "next build && node scripts/copy-static-export.mjs out dist",
+    "start": "node scripts/static-server.mjs dist",
     "lint": "next lint",
-    "deploy": "npm run build && gh-pages -d out"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
