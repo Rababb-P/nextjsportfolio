@@ -1,31 +1,133 @@
 import Link from "next/link"
-import {
-  ArrowRight,
-  Bot,
-  Brain,
-  Download,
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Sparkles,
-  Trophy,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ProjectCard } from "@/components/project-card"
-import { Timeline } from "@/components/timeline"
-import { CreativeHero } from "@/components/creative-hero"
-import { FloatingNav } from "@/components/floating-nav"
-import { ScrollProgress } from "@/components/scroll-progress"
-import { SectionHeading } from "@/components/section-heading"
-import { GlassmorphicCard } from "@/components/glassmorphic-card"
-import { AuroraBackground } from "@/components/ui/aurora-background"
+
+import { CountUp } from "@/components/count-up"
+import { ExperienceList, type Experience } from "@/components/experience-list"
+import { Hero } from "@/components/hero"
+import { Ticker } from "@/components/marquee"
+import { ProjectIndex, type Project } from "@/components/project-index"
+import { Reveal } from "@/components/reveal"
+import { SectionTitle } from "@/components/section-title"
+import { SiteHeader } from "@/components/site-header"
 
 const resumeUrl = "https://drive.google.com/file/d/14YLR1ZixK4FxT7ogixuHqiahCWm0ciG7/view?usp=sharing"
 
-const resumeSkills = [
+const hackathonWins = [
+  "Hack Canada — 1st Place ($5,000)",
+  "Amazon Robotics — 1st Place",
+  "Hack the North — Award Winner",
+  "Toronto Raptors Hackathon — 1st Place",
+  "UofT RSX Seek Jr — 1st Place",
+  "Waterloo Chess Hackathon — 3rd Place",
+  "Most Complex AI Hack — Finalist",
+]
+
+const projects: Project[] = [
+  {
+    title: "Reparo",
+    award: "Hack Canada — 1st Place · $5,000",
+    year: "2026",
+    description:
+      "An agentic repair assistant that diagnoses broken household items and one-click checks out exact replacement parts from live Shopify inventory.",
+    tags: ["Python", "Agentic AI", "Shopify Storefront API"],
+    image: "/reparoimage.jpg",
+    demoUrl: "https://devpost.com/software/reparo",
+  },
+  {
+    title: "StudySync",
+    award: "Hack the North — Best Use of Auth0",
+    year: "2025",
+    description:
+      "A collaborative AI study platform that turns lip-read videos into notes and quizzes, built during Hack the North and awarded Best Use of Auth0.",
+    tags: ["Python", "React", "Auth0", "MongoDB", "OpenAI", "Cohere"],
+    image: "/studysync.jpg",
+    demoUrl:
+      "https://devpost.com/software/studying-with-hack-the-north?ref_content=user-portfolio&ref_feature=in_progress",
+    repoUrl: "https://github.com/Rababb-P/StudySync-HTN",
+  },
+  {
+    title: "Smart Bin",
+    award: "StarterHacks",
+    year: "2024",
+    description:
+      "A real-world ML and hardware build that classifies recycling versus garbage and physically sorts it using an Arduino-driven mechanism.",
+    tags: ["Python", "TensorFlow", "Arduino", "Computer Vision"],
+    image: "/aisortnocam.jpg",
+    demoUrl: "https://devpost.com/software/smart-bin-owq4am",
+    repoUrl: "https://github.com/Rababb-P/SmartBin-StarterHacks2024",
+  },
+  {
+    title: "World Cup Graphs",
+    award: "UofT Create — Capstone",
+    year: "2024",
+    description:
+      "An interactive data storytelling site for World Cup statistics with dynamic filtering, graph generation, and a backend data pipeline.",
+    tags: ["React", "Python", "SQL", "Matplotlib", "pandas"],
+    image: "/fifasite.png",
+    repoUrl: "https://github.com/Rababb-P/UofTCreate2024Capstone",
+  },
+  {
+    title: "FRC Learning Site",
+    award: "FIRST Robotics — Team 854",
+    year: "2025",
+    description:
+      "A teaching-focused robotics site plus robot programming work for Team 854, created to help newer programmers ramp up faster.",
+    tags: ["Java", "WPILIB", "Robotics", "React"],
+    image: "/frcpic.png",
+    demoUrl: "https://rababb-p.github.io/frccoding/",
+    repoUrl: "https://github.com/Rababb-P/2025_Robot",
+  },
+  {
+    title: "Autonomous Rover",
+    award: "UofT Seek Jr — 1st Place",
+    year: "2024",
+    description:
+      "A first-place hackathon rover that navigated a maze autonomously, then switched into Bluetooth control to scan barcodes.",
+    tags: ["Arduino", "C++", "Sensors", "Autonomy"],
+    image: "/seekjrwin.png",
+    demoUrl: "https://rsxutoronto.wixsite.com/mysite/seek-jr-2024",
+  },
+]
+
+const experiences: Experience[] = [
+  {
+    title: "Software Developer Intern",
+    company: "BMO — NARP Platforms",
+    period: "Jan 2026 — Apr 2026",
+    description:
+      "Built internal monitoring and file-observability dashboards for TSYS data flows, AWS API and MQ volumes, and SLA risk tracking using Dynatrace and Ansible.",
+  },
+  {
+    title: "Autonomous Software Developer",
+    company: "WATonomous",
+    period: "Sept 2025 — Present",
+    description:
+      "Trained reinforcement-learning (locomotion) and imitation-learning (manipulation) policies in Isaac Lab and PyTorch, logging rewards, trajectory error, and failure cases.",
+  },
+  {
+    title: "Full-Stack Developer (AI Specialist)",
+    company: "NeedList.org",
+    period: "Mar 2026 — Present",
+    description:
+      "Shipping end-to-end product features for a tech charity startup using TypeScript, NestJS, React, TanStack Query and Router, plus Firebase across auth, data, storage, and cloud functions.",
+  },
+]
+
+const highlights = [
+  {
+    title: "Machine Learning",
+    text: "Training reinforcement-learning and imitation-learning policies, plus models for object detection, transcription workflows, and applied computer vision.",
+  },
+  {
+    title: "Agentic AI",
+    text: "Building agents that plan, call tools, and take real actions — from diagnosing broken hardware to checking out live Shopify inventory.",
+  },
+  {
+    title: "Full-Stack Craft",
+    text: "Shipping thoughtful product experiences across React, Next.js, NestJS, Firebase, MongoDB, and AWS.",
+  },
+]
+
+const stack = [
   {
     label: "Languages",
     items: ["Python", "C++", "TypeScript", "JavaScript", "CSS", "SQL"],
@@ -40,379 +142,209 @@ const resumeSkills = [
   },
 ]
 
-const hackathonWins = [
-  "Hack Canada 1st Place Reactiv ($5000) + Most Complex AI Hack Finalist",
-  "Amazon Robotics 1st Place",
-  "Hack the North Award Winner",
-  "UofT RSX SEEK JR 1st Place",
-  "Waterloo Chess Hackathon 3rd Place",
-  "Toronto Raptors Hackathon 1st Place",
-]
-
-const projects = [
+const stats = [
   {
-    title: "Reparo - Hack Canada Winner",
-    description:
-      "An agentic repair assistant that diagnoses broken household items and one-click checks out exact replacement parts from live Shopify inventory.",
-    tags: ["Python", "Agentic AI", "Shopify Storefront API"],
-    image: "/reparoimage.jpg?height=400&width=600",
-    demoUrl: "https://devpost.com/software/reparo",
+    value: 95,
+    suffix: "%",
+    caption: "YOLOv11 competition object accuracy in the WATonomous pipeline",
   },
   {
-    title: "StudySync - Hack The North Winner",
-    description:
-      "A collaborative AI study platform that turns lip-read videos into notes and quizzes, built during Hack the North and awarded Best Use of Auth0.",
-    tags: ["Python", "React", "Auth0", "MongoDB", "OpenAI", "Cohere"],
-    image: "/studysync.jpg?height=400&width=600",
-    demoUrl:
-      "https://devpost.com/software/studying-with-hack-the-north?ref_content=user-portfolio&ref_feature=in_progress",
-    repoUrl: "https://github.com/Rababb-P/StudySync-HTN",
+    value: 30,
+    prefix: "+",
+    suffix: "%",
+    caption: "Localization accuracy improvement from refined global mapping work",
   },
   {
-    title: "Smart Bin - StarterHacks",
-    description:
-      "A real-world ML and hardware build that classifies recycling versus garbage and physically sorts it using an Arduino-driven mechanism.",
-    tags: ["Python", "TensorFlow", "Arduino", "Computer Vision"],
-    image: "/aisortnocam.jpg?height=400&width=600",
-    demoUrl: "https://devpost.com/software/smart-bin-owq4am",
-    repoUrl: "https://github.com/Rababb-P/SmartBin-StarterHacks2024",
-  },
-  {
-    title: "FIFA World Cup Graphs Site",
-    description:
-      "An interactive data storytelling site for World Cup statistics with dynamic filtering, graph generation, and a backend data pipeline.",
-    tags: ["React", "Python", "SQL", "Matplotlib", "pandas"],
-    image: "/fifasite.png?height=400&width=400",
-    repoUrl: "https://github.com/Rababb-P/UofTCreate2024Capstone",
-  },
-  {
-    title: "FIRST Robotics Learning Site",
-    description:
-      "A teaching-focused robotics site plus robot programming work for Team 854, created to help newer programmers ramp up faster.",
-    tags: ["Java", "WPILIB", "Robotics", "React"],
-    image: "/frcpic.png?height=400&width=600",
-    demoUrl: "https://rababb-p.github.io/frccoding/",
-    repoUrl: "https://github.com/Rababb-P/2025_Robot",
-  },
-  {
-    title: "Autonomous Rover - UofT SEEK JR Winner",
-    description:
-      "A first-place hackathon rover that navigated a maze autonomously, then switched into Bluetooth control to scan barcodes.",
-    tags: ["Arduino", "C++", "Sensors", "Autonomy"],
-    image: "/seekjrwin.png?height=400&width=600",
-    demoUrl: "https://rsxutoronto.wixsite.com/mysite/seek-jr-2024",
+    value: 60,
+    prefix: "−",
+    suffix: "%",
+    caption: "Manual escalation time reduced through file monitor automation at BMO",
   },
 ]
 
-const highlights = [
+const contactRows = [
+  { label: "Email", value: "rpannu@uwaterloo.ca", href: "mailto:rpannu@uwaterloo.ca" },
+  { label: "Phone", value: "437-388-6319", href: "tel:+14373886319" },
+  { label: "Location", value: "Toronto ↔ Waterloo, ON" },
   {
-    icon: Brain,
-    title: "Machine Learning",
-    text: "Training and integrating models for object detection, transcription workflows, and applied computer vision.",
+    label: "LinkedIn",
+    value: "/in/rababb-pannu ↗",
+    href: "https://www.linkedin.com/in/rababb-pannu/",
   },
-  {
-    icon: Bot,
-    title: "Robotics",
-    text: "Building autonomous systems with ROS2, C++, Arduino, hardware integration, and simulation tooling.",
-  },
-  {
-    icon: Sparkles,
-    title: "Full-Stack Craft",
-    text: "Shipping thoughtful product experiences across React, Next.js, NestJS, Firebase, MongoDB, and AWS.",
-  },
+  { label: "GitHub", value: "@Rababb-P ↗", href: "https://github.com/Rababb-P" },
+  { label: "Instagram", value: "@rababb_p ↗", href: "https://instagram.com/rababb_p" },
 ]
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-black text-white">
-      <ScrollProgress />
-      <FloatingNav />
+    <div id="top" className="min-h-screen overflow-x-clip bg-paper text-ink">
+      <SiteHeader resumeUrl={resumeUrl} />
 
-      <div className="dark bg-black">
-        <AuroraBackground className="items-stretch justify-start bg-black text-white" showRadialGradient={false}>
-          <section className="landing-background relative flex min-h-svh w-full items-center justify-center overflow-x-clip px-4 pb-16 pt-28 md:py-24">
-            <div className="container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-              <div className="space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-sm text-blue-600 backdrop-blur-sm">
-                  <Sparkles className="h-4 w-4 text-blue-600" />
-                  Marvel Rivals Player at Heart
-                </div>
-                <div className="space-y-5">
-                  <h1 className="max-w-4xl text-4xl font-bold leading-tight sm:text-5xl md:text-7xl">
-                    Rababb Pannu,
-                    <span className="text-blue-600">
-                      {" "}
-                      hackathon enthusiast,
-                    </span>
-                  </h1>
-                  <p className="max-w-[650px] text-base leading-7 text-slate-200 sm:text-lg md:text-xl md:leading-8">
-                    I&apos;m a Computer Engineering student at the University of Waterloo, currently blending machine
-                    learning, robotics, and full-stack product work through experiences at BMO, WATonomous, and
-                    NeedList.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <Link href="#projects" scroll={true}>
-                    <Button className="border-0 bg-blue-600 text-white hover:bg-blue-600/90">
-                      View Projects
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Button
-                    variant="outline"
-                    className="border-white/15 bg-white/5 text-slate-100 hover:border-white/25 hover:bg-white/10"
-                    asChild
-                  >
-                    <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                      Resume
-                      <Download className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-                <div className="flex gap-4 pt-2">
-                  <Link href="https://github.com/Rababb-P" target="_blank" rel="noopener noreferrer">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                    >
-                      <Github className="h-5 w-5" />
-                      <span className="sr-only">GitHub</span>
-                    </Button>
-                  </Link>
-                  <Link href="https://www.linkedin.com/in/rababb-pannu/" target="_blank" rel="noopener noreferrer">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                    >
-                      <Linkedin className="h-5 w-5" />
-                      <span className="sr-only">LinkedIn</span>
-                    </Button>
-                  </Link>
-                  <Link href="https://instagram.com/rababb_p" target="_blank" rel="noopener noreferrer">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                    >
-                      <Instagram className="h-5 w-5" />
-                      <span className="sr-only">Instagram</span>
-                    </Button>
-                  </Link>
-                  <Link href="mailto:rpannu@uwaterloo.ca">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full bg-white/8 text-slate-200 hover:bg-white/12"
-                    >
-                      <Mail className="h-5 w-5" />
-                      <span className="sr-only">Email</span>
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              <div className="flex justify-center">
-                <CreativeHero />
-              </div>
-            </div>
-          </section>
-        </AuroraBackground>
+      <main>
+        <Hero resumeUrl={resumeUrl} />
 
-        <div className="bg-black">
-          <section id="about" className="relative px-4 py-28">
-            <div className="container relative z-10">
-              <SectionHeading title="Quick Overview" subtitle="How I like to build" />
+        <Ticker items={hackathonWins} />
 
-              <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-                <div className="grid gap-6">
-                  {highlights.map((item) => (
-                    <GlassmorphicCard key={item.title}>
-                      <item.icon className="mb-4 h-8 w-8 text-blue-600" />
-                      <h3 className="mb-2 text-xl font-semibold text-blue-600">{item.title}</h3>
-                      <p className="text-sm leading-6 text-slate-200">{item.text}</p>
-                    </GlassmorphicCard>
-                  ))}
-                </div>
+        <section id="projects" className="scroll-mt-20 py-20 md:py-28">
+          <div className="container">
+            <Reveal>
+              <SectionTitle index="01" note="Selected Work" title="Projects" />
+            </Reveal>
+            <Reveal>
+              <ProjectIndex projects={projects} />
+            </Reveal>
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-muted">
+              ↳ Click a row to expand
+            </p>
+          </div>
+        </section>
 
-                <div className="grid gap-6">
-                  <GlassmorphicCard>
-                    <div className="space-y-6">
-                      <div>
-                        <div className="text-sm uppercase tracking-[0.25em] text-slate-300">Resume Skills</div>
-                        <h3 className="mt-2 text-3xl font-semibold text-blue-600">My current stack</h3>
+        <section id="experience" className="scroll-mt-20 py-20 md:py-28">
+          <div className="container">
+            <Reveal>
+              <SectionTitle index="02" note="Where I've Worked" title="Experience" />
+            </Reveal>
+            <ExperienceList items={experiences} />
+          </div>
+        </section>
+
+        <section id="about" className="scroll-mt-20 py-20 md:py-28">
+          <div className="container">
+            <Reveal>
+              <SectionTitle index="03" note="Capabilities" title="Profile" />
+            </Reveal>
+
+            <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+              <div>
+                {highlights.map((item, i) => (
+                  <Reveal key={item.title} delay={i * 80}>
+                    <div className="border-b border-line py-6 first:pt-0">
+                      <div className="font-mono text-[11px] text-signal">
+                        {String(i + 1).padStart(2, "0")}
                       </div>
-
-                      {resumeSkills.map((group) => (
-                        <div key={group.label} className="space-y-3">
-                          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-                            {group.label}
-                          </div>
-                          <div className="flex flex-wrap gap-3">
-                            {group.items.map((item) => (
-                              <span
-                                key={item}
-                                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-100"
-                              >
-                                {item}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
+                      <h3 className="mt-2 text-xl font-extrabold uppercase tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 leading-7 text-ink-muted">{item.text}</p>
                     </div>
-                  </GlassmorphicCard>
+                  </Reveal>
+                ))}
+              </div>
 
-                  <GlassmorphicCard>
-                    <div className="space-y-5">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                          <Trophy className="h-5 w-5 text-blue-600" />
-                        </div>
-                        <div>
-
-                          <h3 className="mt-1 text-2xl font-semibold text-blue-600">Hackathon Wins</h3>
-                        </div>
+              <div>
+                {stack.map((group) => (
+                  <Reveal key={group.label}>
+                    <div className="border-b border-line py-6 first:pt-0">
+                      <div className="flex items-baseline justify-between font-mono text-[11px] uppercase tracking-[0.25em] text-ink-muted">
+                        <span>{group.label}</span>
+                        <span>({String(group.items.length).padStart(2, "0")})</span>
                       </div>
-
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        {hackathonWins.map((win) => (
-                          <div
-                            key={win}
-                            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-100"
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {group.items.map((skill) => (
+                          <span
+                            key={skill}
+                            className="cursor-crosshair border border-ink px-3 py-1.5 font-mono text-xs uppercase tracking-wide transition-colors duration-150 hover:bg-ink hover:text-paper"
                           >
-                            {win}
-                          </div>
+                            {skill}
+                          </span>
                         ))}
                       </div>
                     </div>
-                  </GlassmorphicCard>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="projects" className="relative px-4 py-28">
-            <div className="container relative z-10">
-              <SectionHeading title="Featured Builds" subtitle="Projects from hackathons, robotics, AI, and product work" />
-
-              <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {projects.map((project) => (
-                  <ProjectCard key={project.title} {...project} />
+                  </Reveal>
                 ))}
               </div>
             </div>
-          </section>
 
-          <section id="experience" className="relative px-4 py-28">
-            <div className="container relative z-10">
-              <SectionHeading title="Experience Timeline" subtitle="Internships + Design Teams" />
-
-              <div className="mt-16">
-                <Timeline />
-              </div>
-            </div>
-          </section>
-
-          <section className="relative px-4 py-10">
-            <div className="container relative z-10">
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-                <GlassmorphicCard>
-                  <div className="text-4xl font-bold text-blue-600">95%</div>
-                  <p className="mt-3 text-slate-200">YOLOv11 competition object accuracy in the WATonomous pipeline.</p>
-                </GlassmorphicCard>
-                <GlassmorphicCard>
-                  <div className="text-4xl font-bold text-blue-600">30%</div>
-                  <p className="mt-3 text-slate-200">Localization accuracy improvement from refined global mapping work.</p>
-                </GlassmorphicCard>
-                <GlassmorphicCard>
-                  <div className="text-4xl font-bold text-blue-600">60%</div>
-                  <p className="mt-3 text-slate-200">Manual escalation time reduced through file monitor automation at BMO.</p>
-                </GlassmorphicCard>
-              </div>
-            </div>
-          </section>
-
-          <section id="contact" className="relative px-4 py-28">
-            <div className="container relative z-10">
-              <SectionHeading title="Let&apos;s Make Something" subtitle="Open to opportunities and collaborations" />
-
-              <div className="mx-auto mt-16 max-w-2xl">
-                <GlassmorphicCard>
-                  <h3 className="mb-6 text-2xl font-bold text-blue-600">Contact Information</h3>
-                  <div className="space-y-5">
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <Mail className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <div className="text-sm text-slate-300">University Email</div>
-                        <div className="font-medium text-white">rpannu@uwaterloo.ca</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <Phone className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <div className="text-sm text-slate-300">Phone</div>
-                        <div className="font-medium text-white">437-388-6319</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <MapPin className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <div className="text-sm text-slate-300">Base</div>
-                        <div className="font-medium text-white">Toronto and Waterloo, Ontario</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
-                        <Linkedin className="h-5 w-5 text-blue-600" />
-                      </div>
-                      <div>
-                        <div className="text-sm text-slate-300">LinkedIn</div>
-                        <div className="font-medium text-white">linkedin.com/in/rababb-pannu</div>
-                      </div>
-                    </div>
-                    <div className="pt-4">
-                      <Button className="border-0 bg-blue-600 text-white hover:bg-blue-600/90" asChild>
-                        <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                          Open Resume on Drive
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </div>
+            <Reveal className="mt-16 md:mt-20">
+              <div className="grid border-y border-ink sm:grid-cols-3 sm:divide-x sm:divide-line">
+                {stats.map((stat) => (
+                  <div key={stat.caption} className="px-1 py-8 sm:px-8 sm:first:pl-1 md:py-10">
+                    <CountUp
+                      value={stat.value}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                      className="text-5xl font-black tracking-tight md:text-6xl"
+                    />
+                    <p className="mt-3 font-mono text-[11px] uppercase leading-5 tracking-[0.15em] text-ink-muted">
+                      {stat.caption}
+                    </p>
                   </div>
-                </GlassmorphicCard>
+                ))}
               </div>
-            </div>
-          </section>
+            </Reveal>
+          </div>
+        </section>
 
-          <footer className="px-4 py-10">
-            <div className="container relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/40 px-6 py-8 text-center backdrop-blur-xl md:flex-row md:text-left">
-              <div className="absolute inset-0 bg-black/16"></div>
-              <div className="relative text-slate-300">@ 2026 Rababb Pannu</div>
-              <div className="relative flex gap-6">
-                <Link href="https://github.com/Rababb-P" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <Github className="h-6 w-6 text-slate-300 transition hover:text-white" />
-                </Link>
-                <Link href="https://www.linkedin.com/in/rababb-pannu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <Linkedin className="h-6 w-6 text-slate-300 transition hover:text-white" />
-                </Link>
-                <Link href="https://instagram.com/rababb_p" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                  <Instagram className="h-6 w-6 text-slate-300 transition hover:text-white" />
-                </Link>
-                <Link href="mailto:rpannu@uwaterloo.ca" aria-label="Email">
-                  <Mail className="h-6 w-6 text-slate-300 transition hover:text-white" />
+        <section id="contact" className="scroll-mt-20 border-t border-ink bg-ink py-20 text-paper md:py-28">
+          <div className="container">
+            <Reveal>
+              <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-signal">
+                04 — Contact
+              </span>
+            </Reveal>
+
+            <Reveal className="mt-10">
+              <a
+                href="mailto:rpannu@uwaterloo.ca"
+                className="u-link-thick break-all text-[clamp(1.6rem,6vw,4.5rem)] font-black tracking-tight transition-colors hover:text-signal"
+              >
+                rpannu@uwaterloo.ca
+              </a>
+            </Reveal>
+
+            <Reveal className="mt-16">
+              <div className="border-t border-paper/20">
+                {contactRows.map((row) => {
+                  const inner = (
+                    <>
+                      <span className="tracking-[0.25em] text-paper/50">{row.label}</span>
+                      <span className="text-right tracking-[0.15em]">{row.value}</span>
+                    </>
+                  )
+                  return row.href ? (
+                    <Link
+                      key={row.label}
+                      href={row.href}
+                      target={row.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                      className="flex items-baseline justify-between gap-4 border-b border-paper/20 py-4 font-mono text-xs uppercase transition-all duration-200 hover:border-signal hover:pl-2 hover:text-signal"
+                    >
+                      {inner}
+                    </Link>
+                  ) : (
+                    <div
+                      key={row.label}
+                      className="flex items-baseline justify-between gap-4 border-b border-paper/20 py-4 font-mono text-xs uppercase"
+                    >
+                      {inner}
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="mt-10">
+                <Link
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-brutal btn-brutal-inverse"
+                >
+                  Open Résumé ↗
                 </Link>
               </div>
-            </div>
-          </footer>
-        </div>
-      </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <footer className="border-t border-paper/20 bg-ink py-6 text-paper">
+          <div className="container flex flex-col justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.25em] text-paper/50 sm:flex-row sm:items-center">
+            <span>© 2026 Rababb Pannu</span>
+            <span>Designed &amp; built by hand — no template</span>
+            <a href="#top" className="text-paper transition-colors hover:text-signal">
+              Back to top ↑
+            </a>
+          </div>
+        </footer>
+      </main>
     </div>
   )
 }

@@ -1,16 +1,5 @@
 import type { Config } from "tailwindcss"
 
-const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default
-
-function addVariablesForColors({ addBase, theme }: any) {
-  const allColors = flattenColorPalette(theme("colors"))
-  const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]))
-
-  addBase({
-    ":root": newVars,
-  })
-}
-
 const config = {
   darkMode: ["class"],
   content: [
@@ -24,13 +13,29 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1.25rem",
+        md: "2.5rem",
+      },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1440px",
       },
     },
     extend: {
       colors: {
+        paper: {
+          DEFAULT: "#F4F1E9",
+          raised: "#ECE8DC",
+        },
+        ink: {
+          DEFAULT: "#1C1A15",
+          muted: "#6E6A5E",
+        },
+        line: "#D8D3C4",
+        signal: {
+          DEFAULT: "#E43D12",
+          dark: "#B92E0A",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -65,6 +70,11 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -79,23 +89,19 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        aurora: {
-          from: {
-            backgroundPosition: "50% 50%, 50% 50%",
-          },
-          to: {
-            backgroundPosition: "350% 50%, 350% 50%",
-          },
+        ticker: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        aurora: "aurora 60s linear infinite",
+        ticker: "ticker 36s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config
 
 export default config
