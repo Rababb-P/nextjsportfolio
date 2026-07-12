@@ -23,6 +23,17 @@ const hackathonWins = [
 
 const projects: Project[] = [
   {
+    title: "AI Voice Persona Agent",
+    award: "Fine-tuned Whisper · Real-time Voice RAG",
+    year: "2026",
+    description:
+      "A hold-to-talk AI persona of me — Whisper fine-tuned with LoRA and exported to CTranslate2 for real-time int8 transcription, driving a LangGraph agent grounded with RAG over personal data in ChromaDB, with prompt-injection guardrails gated by a CI eval harness.",
+    tags: ["PyTorch", "LangGraph", "Whisper", "RAG", "ChromaDB", "HuggingFace"],
+    image: "/voiceagent.jpg",
+    video: "/voiceagent.mp4",
+    repoUrl: "https://github.com/Rababb-P/CustomVoiceAgent",
+  },
+  {
     title: "Reparo",
     award: "Hack Canada — 1st Place · $5,000",
     year: "2026",

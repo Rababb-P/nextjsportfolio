@@ -10,6 +10,7 @@ export interface Project {
   description: string
   tags: string[]
   image: string
+  video?: string
   demoUrl?: string
   repoUrl?: string
 }
@@ -21,6 +22,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
   const [finePointer, setFinePointer] = useState(false)
 
   const previewRef = useRef<HTMLDivElement>(null)
+  const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({})
   const target = useRef({ x: 0, y: 0 })
   const current = useRef({ x: 0, y: 0 })
   const hovering = useRef(false)
@@ -29,6 +31,13 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
   useEffect(() => {
     setFinePointer(window.matchMedia("(pointer: fine)").matches)
   }, [])
+
+  // Pause any demo video whose row is no longer the open one
+  useEffect(() => {
+    Object.entries(videoRefs.current).forEach(([idx, vid]) => {
+      if (vid && Number(idx) !== openIndex) vid.pause()
+    })
+  }, [openIndex])
 
   useEffect(() => {
     if (hoverIndex === null || !finePointer) return
@@ -116,7 +125,11 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
               style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
             >
               <div className="overflow-hidden">
-                <div className="grid gap-6 pb-8 md:grid-cols-[1fr_340px] md:gap-12 md:pb-10 md:pl-[5.5rem]">
+                <div
+                  className={`grid gap-6 pb-8 md:gap-12 md:pb-10 md:pl-[5.5rem] ${
+                    project.video ? "" : "md:grid-cols-[1fr_340px]"
+                  }`}
+                >
                   <div>
                     <p className="max-w-xl text-base leading-7 text-ink-muted">
                       {project.description}
@@ -147,11 +160,30 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
                       )}
                     </div>
                   </div>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="aspect-[4/3] w-full max-w-[340px] border border-ink object-cover"
-                  />
+                  {project.video ? (
+                    <div className="max-w-[720px]">
+                      <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-muted">
+                        ↳ Demo Recording
+                      </p>
+                      <video
+                        ref={(el) => {
+                          videoRefs.current[i] = el
+                        }}
+                        src={project.video}
+                        poster={project.image}
+                        controls
+                        playsInline
+                        preload="none"
+                        className="aspect-video w-full border border-ink bg-ink"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="aspect-[4/3] w-full max-w-[340px] border border-ink object-cover"
+                    />
+                  )}
                 </div>
               </div>
             </div>
