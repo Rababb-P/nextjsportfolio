@@ -26,7 +26,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: 'Rababb Pannu | ML, Agentic AI, and Full-Stack Portfolio',
   description:
-    'Portfolio for Rababb Pannu, featuring machine learning, agentic AI, and full-stack projects from Waterloo, BMO, and more.',
+    'Rababb Pannu, Computer Engineering student at Waterloo and AI Engineering Intern at Presto Phoenix. Explore agentic voice systems, machine learning, and full-stack projects from Presto, BMO, and WATonomous.',
   icons: {
     icon: '/logo.svg',
   },

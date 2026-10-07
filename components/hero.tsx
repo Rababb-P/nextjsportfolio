@@ -35,9 +35,9 @@ export function Hero({ resumeUrl }: { resumeUrl: string }) {
         <div className="grid gap-10 border-t border-line py-10 md:py-14 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="max-w-md text-base leading-7 text-ink-muted">
-              Computer Engineering student at the University of Waterloo, blending machine
-              learning, agentic AI, and full-stack product work through experiences at BMO,
-              WATonomous, and NeedList.
+              Computer Engineering student at the University of Waterloo and AI Engineering
+              Intern at Presto Phoenix. Building agentic voice systems, machine learning,
+              and full-stack products through work at Presto, BMO, and WATonomous.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#projects" className="btn-brutal btn-brutal-solid">
@@ -80,7 +80,7 @@ export function Hero({ resumeUrl }: { resumeUrl: string }) {
             </div>
             <div className="grid grid-cols-[110px_1fr] items-baseline gap-4 py-4">
               <dt className="tracking-[0.25em] text-ink-muted">Now</dt>
-              <dd className="tracking-[0.1em]">NeedList.org · WATonomous</dd>
+              <dd className="tracking-[0.1em]">Presto Phoenix · WATonomous</dd>
             </div>
             <div className="grid grid-cols-[110px_1fr] items-baseline gap-4 py-4">
               <dt className="tracking-[0.25em] text-ink-muted">Status</dt>

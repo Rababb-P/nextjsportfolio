@@ -9,7 +9,7 @@ import { Reveal } from "@/components/reveal"
 import { SectionTitle } from "@/components/section-title"
 import { SiteHeader } from "@/components/site-header"
 
-const resumeUrl = "https://drive.google.com/file/d/14YLR1ZixK4FxT7ogixuHqiahCWm0ciG7/view?usp=sharing"
+const resumeUrl = "/Rababb_Pannu_Resume.pdf"
 
 const hackathonWins = [
   "Hack Canada — 1st Place ($5,000)",
@@ -38,15 +38,15 @@ const projects: Project[] = [
     award: "Hack Canada — 1st Place · $5,000",
     year: "2026",
     description:
-      "An agentic repair assistant that diagnoses broken household items and one-click checks out exact replacement parts from live Shopify inventory.",
-    tags: ["Python", "Agentic AI", "Shopify Storefront API"],
+      "A 36-hour agentic repair assistant that diagnoses broken household items, grounds replacement-part recommendations in live product catalogs with RAG, and takes in-stock Shopify inventory through checkout.",
+    tags: ["Python", "Agentic AI", "RAG", "Shopify Storefront API"],
     image: "/reparoimage.jpg",
     demoUrl: "https://devpost.com/software/reparo",
   },
   {
     title: "StudySync",
     award: "Hack the North — Best Use of Auth0",
-    year: "2025",
+    year: "2024",
     description:
       "A collaborative AI study platform that turns lip-read videos into notes and quizzes, built during Hack the North and awarded Best Use of Auth0.",
     tags: ["Python", "React", "Auth0", "MongoDB", "OpenAI", "Cohere"],
@@ -71,7 +71,7 @@ const projects: Project[] = [
     award: "UofT Create — Capstone",
     year: "2024",
     description:
-      "An interactive data storytelling site for World Cup statistics with dynamic filtering, graph generation, and a backend data pipeline.",
+      "An interactive React site for FIFA World Cup statistics with dynamic filtering and real-time graph updates. A pandas and Matplotlib backend pipeline queries data and generates plots, reducing manual processing time by 95%.",
     tags: ["React", "Python", "SQL", "Matplotlib", "pandas"],
     image: "/fifasite.png",
     repoUrl: "https://github.com/Rababb-P/UofTCreate2024Capstone",
@@ -101,25 +101,25 @@ const projects: Project[] = [
 
 const experiences: Experience[] = [
   {
-    title: "Software Developer Intern",
+    title: "AI Engineering Intern",
+    company: "Presto Phoenix (YC S10)",
+    period: "Aug 2026 — Present",
+    description:
+      "Working on agentic voice ordering for drive-thru deployments in San Mateo, California: streaming ASR, custom NLU and LLM orchestration, menu grounding over POS integrations, and TTS. Focused on order accuracy (NIR), per-turn latency, failure triage, and release evaluation coverage.",
+  },
+  {
+    title: "Software Engineering Intern",
     company: "BMO — NARP Platforms",
     period: "Jan 2026 — Apr 2026",
     description:
-      "Built internal monitoring and file-observability dashboards for TSYS data flows, AWS API and MQ volumes, and SLA risk tracking using Dynatrace and Ansible.",
+      "Led a file monitoring system using DQL in Dynatrace and Python and JSON in Ansible to track file presence, metadata, and SLA compliance, cutting manual escalation time by 60%. Helped build a TSYS dashboard for data flows, AWS API and MQ volumes, and consumer usage with AWS Lambda CloudWatch logs.",
   },
   {
-    title: "Autonomous Software Developer",
+    title: "Machine Learning Engineer",
     company: "WATonomous",
     period: "Sept 2025 — Present",
     description:
-      "Trained reinforcement-learning (locomotion) and imitation-learning (manipulation) policies in Isaac Lab and PyTorch, logging rewards, trajectory error, and failure cases.",
-  },
-  {
-    title: "Full-Stack Developer (AI Specialist)",
-    company: "NeedList.org",
-    period: "Mar 2026 — Present",
-    description:
-      "Shipping end-to-end product features for a tech charity startup using TypeScript, NestJS, React, TanStack Query and Router, plus Firebase across auth, data, storage, and cloud functions.",
+      "Trained reinforcement-learning locomotion and imitation-learning manipulation policies in Isaac Lab and PyTorch. Fine-tuned YOLOv11 for competition-specific objects, achieving 95% accuracy in the robotics simulation pipeline, and used WATcloud’s Slurm-managed GPU cluster for distributed training.",
   },
 ]
 
@@ -130,18 +130,18 @@ const highlights = [
   },
   {
     title: "Agentic AI",
-    text: "Building agents that plan, call tools, and take real actions — from diagnosing broken hardware to checking out live Shopify inventory.",
+    text: "Building grounded agents and voice pipelines with streaming ASR, LLM orchestration, RAG, and release evaluations — from drive-thru ordering to repair-part checkout.",
   },
   {
     title: "Full-Stack Craft",
-    text: "Shipping thoughtful product experiences across React, Next.js, NestJS, Firebase, MongoDB, and AWS.",
+    text: "Building interactive products and data workflows with React, Next.js, Python, SQL, Supabase, and AWS.",
   },
 ]
 
 const stack = [
   {
     label: "Languages",
-    items: ["Python", "C++", "TypeScript", "JavaScript", "CSS", "SQL"],
+    items: ["Python", "C++", "TypeScript", "JavaScript", "CSS", "SQL", "Java"],
   },
   {
     label: "Frameworks",
@@ -149,7 +149,7 @@ const stack = [
   },
   {
     label: "Developer Tools",
-    items: ["Supabase", "Git", "Docker", "Node.js", "Linux", "AWS"],
+    items: ["Supabase", "Git", "Docker", "Node.js", "Linux", "AWS", "S3", "CI/CD"],
   },
 ]
 
@@ -160,10 +160,10 @@ const stats = [
     caption: "YOLOv11 competition object accuracy in the WATonomous pipeline",
   },
   {
-    value: 30,
-    prefix: "+",
+    value: 95,
+    prefix: "−",
     suffix: "%",
-    caption: "Localization accuracy improvement from refined global mapping work",
+    caption: "Manual data processing time reduced in the FIFA World Cup graphs pipeline",
   },
   {
     value: 60,
@@ -223,6 +223,33 @@ export default function Portfolio() {
           <div className="container">
             <Reveal>
               <SectionTitle index="03" note="Capabilities" title="Profile" />
+            </Reveal>
+
+            <Reveal className="mb-12">
+              <div className="grid gap-8 border-y border-line py-8 md:grid-cols-2">
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-ink-muted">
+                    Education
+                  </p>
+                  <h3 className="mt-3 text-xl font-extrabold uppercase tracking-tight">
+                    University of Waterloo
+                  </h3>
+                  <p className="mt-2 leading-7 text-ink-muted">
+                    Bachelor of Applied Science in Computer Engineering · GPA: 3.3
+                  </p>
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-ink-muted">
+                    Certification
+                  </p>
+                  <h3 className="mt-3 text-xl font-extrabold uppercase tracking-tight">
+                    AWS Certified Cloud Practitioner
+                  </h3>
+                  <p className="mt-2 leading-7 text-ink-muted">
+                    Elasticsearch, EC2, ECS, CloudWatch, CloudFront, and S3.
+                  </p>
+                </div>
+              </div>
             </Reveal>
 
             <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
